@@ -1,6 +1,6 @@
 {
-    "service_account_key_file": "/key.json",
-    "folder_id": "dasgffd",
+    "service_account_key_file": "home/otus/key.json",
+    "folder_id": "11g099gtu8t0h3qhdvuu",
     "source_image_family": "ubuntu-1604-lts",
     "ssh_username": "ubuntu",
     "platform_id" : "standard-v1"
