@@ -1,5 +1,5 @@
 {
-    "service_account_key_file": "",
+    "service_account_key_file": "key.json",
     "folder_id": "b1g099gtu8t0h3qhdvkk",
     "source_image_family": "ubuntu-1604-lts",
     "ssh_username": "ubuntu",
