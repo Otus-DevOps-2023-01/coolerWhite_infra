@@ -9,3 +9,6 @@ someinternalhost_IP = 10.128.0.15
 Для запуска скопировать папку packer. В variables.json.example заменить значения пустых строк
 Перед стартом используем коману : packer validate -var-file=variables.json.example ubuntu16.json
 Для запуска используем команду : packer build -var-file=variables.json.example ubuntu16.json
+testapp_IP = 158.160.48.155
+testapp_port = 9292
+
