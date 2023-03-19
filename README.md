@@ -9,3 +9,16 @@ someinternalhost_IP = 10.128.0.15
 Для запуска скопировать папку packer. В variables.json.example заменить значения пустых строк
 Перед стартом используем коману : packer validate -var-file=variables.json.example ubuntu16.json
 Для запуска используем команду : packer build -var-file=variables.json.example ubuntu16.json
+
+====================================
+terraform-1
+====================================
+## Как запустить проект:
+ - расскоментировать в main.tf блок terraformm
+ - запустить terraform init
+ - terraform.tfvars.example переименновать в terraform.tfvars и заменить значения
+ - запустить terraform plan -> terraform apply
+
+## Как проверить работоспособность:
+ - http://158.160.54.165:9292/
+====================================
