@@ -1,0 +1,7 @@
+cloud_id                 = "b1g7l74lnn6rclqqjmol"
+folder_id                = "b1g099gtu8t0h3qhdvkk"
+image_id                 = "fd8putp63lah5ib4qo57"
+public_key_path          = "/home/otus/.ssh/yc.pub"
+private_key_path         = "/home/otus/.ssh/yc"
+subnet_id                = "e9b0pjnjll7us9110olj"
+service_account_key_file = "/home/otus/terraform/key.json"
