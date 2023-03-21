@@ -23,6 +23,8 @@ terraform-1
  - http://158.160.54.165:9292/
 
 ====================================
+terraform-2
+====================================
 ## Как запустить проект:
  - https://cloud.yandex.com/en/docs/tutorials/infrastructure-management/terraform-quickstart
  - создать файл nano ~/.terraformrc
