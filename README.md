@@ -21,4 +21,17 @@ terraform-1
 
 ## Как проверить работоспособность:
  - http://158.160.54.165:9292/
+
 ====================================
+## Как запустить проект:
+ - https://cloud.yandex.com/en/docs/tutorials/infrastructure-management/terraform-quickstart
+ - создать файл nano ~/.terraformrc
+ - вставить кусок код в main.tf, т.к без него не видит провайдера Yandex 
+ - сгенерировать свои пару ssh-key, key.json
+
+## Как проверить работоспособность:
+ - terraform init
+ - terraform get
+ - terraform apply
+ 
+ ====================================
