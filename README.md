@@ -3,5 +3,22 @@ coolerWhite Infra repository
 alias someinternalhost='ssh -i ~/.ssh/appuser -J appuser@158.160.62.140 appuser@10.128.0.15'
 bastion_IP = 158.160.62.140
 someinternalhost_IP = 10.128.0.15
-testapp_IP = 158.160.48.155
-testapp_port = 9292
+
+====================================
+Все задания выполнены, как требовалось в зании. Дополнительный задания - не выполнены
+Для запуска скопировать папку packer. В variables.json.example заменить значения пустых строк
+Перед стартом используем коману : packer validate -var-file=variables.json.example ubuntu16.json
+Для запуска используем команду : packer build -var-file=variables.json.example ubuntu16.json
+
+====================================
+terraform-1
+====================================
+## Как запустить проект:
+ - расскоментировать в main.tf блок terraformm
+ - запустить terraform init
+ - terraform.tfvars.example переименновать в terraform.tfvars и заменить значения
+ - запустить terraform plan -> terraform apply
+
+## Как проверить работоспособность:
+ - http://158.160.54.165:9292/
+====================================
