@@ -1,0 +1,74 @@
+---
+  - name: Configure hosts & deploy application
+    hosts: all
+    vars:
+      mongo_bind_ip: 0.0.0.0
+    tasks:
+      - name: Меняем монго
+        become: true
+        template:
+          src: template/mongod.conf.j2
+          dest: /etc/mongod.conf
+          mode: 0644
+        tags: db-tag
+        notify: restart mongod
+    handlers: # <-- Добавим блок handlers и задачу
+      - name: restart mongod
+        become: true
+        service:
+          - name: mongod
+            state: restarted
+  - name: Add unit file for Puma
+    become: true
+    copy:
+      src: file/puma.service
+      dest: /etc/systemd/system/puma.service
+    tags: app-tag
+    notify: reload puma
+
+  - name: ВКЛ пума
+    become: true
+    ansible.builtin.systemd:
+      name: puma
+      enabled: yes
+    tags: app-tag
+    handlers:
+      - name: restart MONGO
+        become: true
+        ansible.builtin.service:
+          name: mongod
+          state: restarted
+      - name: PUMA reload
+        become: true
+        ansible.builtin.systemd:
+          name: puma
+          state: restarted
+  - name: Add config for DB connection
+    ansible.builtin.template:
+      src: templates/db_config.j2
+      dest: /home/appuser/db_config
+    tags: app-tag
+  - name: ВКЛ пума
+    become: true
+    ansible.builtin.systemd:
+      name: puma
+      enabled: yes
+    tags: app-tag
+  - name: Configure hosts & deploy application
+    hosts: all
+    vars:
+      mongo_bind_ip: 0.0.0.0
+      db_config: 10.10.0.2
+
+  - name: Fetch the latest version of application code
+    git:
+      repo: 'https://github.com/express42/reddit.git'
+      dest: /home/appuser/reddit
+      version: monolith # <-- Указываем нужную ветку
+    tags: deploy-tag
+    notify: reload puma
+  - name: Bundle install
+    bundler:
+      state: present
+      chdir: /home/appuser/reddit # <-- В какой директории выполнить команду
+    tags: deploy-tag
