@@ -14,7 +14,7 @@ resource "yandex_compute_instance" "db" {
   }
 
   resources {
-    cores  = 1
+    cores  = 2
     memory = 2
   }
 
@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "db" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.app-subnet.id
+    subnet_id = var.subnet_id
     nat = true
   }
 
@@ -33,15 +33,4 @@ resource "yandex_compute_instance" "db" {
   ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
 
-}
-
-resource "yandex_vpc_network" "app-network" {
-  name = "app-network"
-}
-
-resource "yandex_vpc_subnet" "app-subnet" {
-  name           = "app-subnet"
-  zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.app-network.id}"
-  v4_cidr_blocks = ["192.168.10.0/24"]
 }
