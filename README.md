@@ -26,14 +26,14 @@ terraform-1
 ## Как запустить проект:
  - https://cloud.yandex.com/en/docs/tutorials/infrastructure-management/terraform-quickstart
  - создать файл nano ~/.terraformrc
- - вставить кусок код в main.tf, т.к без него не видит провайдера Yandex 
+ - вставить кусок код в main.tf, т.к без него не видит провайдера Yandex
  - сгенерировать свои пару ssh-key, key.json
 
 ## Как проверить работоспособность:
  - terraform init
  - terraform get
  - terraform apply
- 
+
 ====================================
 ansible-1
 ====================================
@@ -41,5 +41,10 @@ ansible-1
  - запустить clone.yml
 
 ## Как проверить работоспособность:
+
+## Описание  процесса:
+ - после ansible-playbook clone.yml
+ - запуститли ansible app -m command -a 'rm -rf ~/reddit'
+ - созалась папка, даже если его нет
 
 ====================================
