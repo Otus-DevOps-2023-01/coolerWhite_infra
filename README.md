@@ -40,9 +40,7 @@ terraform-2
 ansible-1
 ====================================
 ## Как запустить проект:
- - запустить clone.yml
-
-## Как проверить работоспособность:
+ - ansible-playbook clone.yml
 
 ## Описание  процесса:
  - после ansible-playbook clone.yml
