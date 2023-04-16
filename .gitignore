@@ -6,3 +6,12 @@ variables.json
 .terraform/
 jdauphant.nginx
 vault.key
+git_push.sh
+
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
