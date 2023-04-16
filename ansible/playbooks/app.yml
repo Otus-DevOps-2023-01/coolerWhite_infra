@@ -1,4 +1,3 @@
----
 - name: Configure App
   hosts: app
   become: true
@@ -20,6 +19,7 @@
 
     - name: enable puma
       systemd: name=puma enabled=yes
+
   handlers:
   - name: reload puma
     systemd: name=puma state=restarted
